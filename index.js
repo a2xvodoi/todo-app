@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./config/db');
 const Todo = require('./models/todo');
+const port = process.env.PORT || 8000;
 
 app.set('views','views');
 app.set('view engine','ejs');
@@ -56,6 +57,6 @@ app.delete('/api/todo/delete', (req, res) =>{
         res.json({status: false});
     })
 })
-app.listen(3000, () =>{
-    console.log(`Server is running on port: http://localhost:3000`);
+app.listen(port, () =>{
+    console.log(`Server is running on port: http://localhost:${port}`);
 })
